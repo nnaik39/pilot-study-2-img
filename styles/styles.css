@@ -75,6 +75,7 @@ p {
 }
 
 .bordered-text {
+    text-align: center;
     border-width:3px;
     border-style:solid;
     border-color:#000000;
@@ -103,7 +104,7 @@ button,
 }
 
 #hint {
-    margin: 20px auto 45px auto;
+    margin: 45px auto 45px auto;
 }
 
 /* buttons when covered or clicked */

@@ -183,7 +183,7 @@
             {{/ critical_text }}
 
             <div class="picture">
-                    <p class="bordered-text"> Image Description: {{{ description }}} </p>
+                <img src={{ picture }} alt="a picture" height="300">
             </div>
             <br>
             <hr>
@@ -200,12 +200,14 @@
                 </p>
 
                 <br> 
-                
+
                 {{# q2 }}
                 <p class="question">{{{ q2 }}} </p>
                 {{/ q2 }}
-                 <div class="popup">
-                    <span class="popuptext" id="myPopup">Think of questions that will help you imagine the image and why it appears on the website. Please ensure your questions are more than 3 words.</span>
+                <p class="bordered-text"> Image Description: {{{ description }}} </p>
+
+                <div class="popup">
+                    <span class="popuptext" id="myPopup">Think of questions that will help this user imagine the image and why it appears on the website. Please ensure your questions are more than 3 words.</span>
                 </div>
                 <button id="hint"> Hint </button>
 

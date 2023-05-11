@@ -138,7 +138,7 @@ var instruction_screen = {
     name: "instruction",
     title: "Instructions",
     text:
-        "<strong>Images online</strong> are a useful resource, but there are cases where you <strong>cannot directly see</strong> the image—for instance, if you have a visual impairment or if you’re browsing a speech-enabled website where the site content is narrated.",
+        "<strong>Images online</strong> can be a useful resource, but there are cases where you <strong>cannot directly see</strong> the image—for instance, if you have a visual impairment or if you’re browsing a speech-enabled website where the site content is narrated.",
     paragraph2: "In this study, we’re investigating how asking questions might help when you can’t see the image. You’ll see six <strong>image descriptions</strong>, each paired with a type of website where you might see the image. You’ll be asked to <strong> guess why </strong> the image appears on this type of website, and to <strong> ask questions </strong> to understand the image further.",
     readyText: "Are you ready?",
     buttonText: "Begin experiment",
@@ -184,37 +184,44 @@ var main = {
         if (exp.trial_info.main_trials[CT]['category'] == 'health') {
             text = "Imagine that you are browsing a <strong>health website</strong>, with the goal of learning how to live a healthier lifestyle, when you encounter the following image."
             q1 = "Why do you think this image appears on a <strong>health website </strong>?"
-            q2 = "What are two questions you'd want to have answered if you encountered this image on a <strong>health website</strong>?"
+            q2 = "Now assume someone encounters this image on a <strong>health website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
         }
         else if (exp.trial_info.main_trials[CT]['category'] == 'shopping') {
             text = "Imagine that you are browsing a <strong>shopping website</strong>, with the goal of purchasing an item or experience, when you encounter the following image."
             q1 = "Why do you think this image appears on a <strong>shopping website</strong>?"
-            q2 = "What are two questions you'd want to have answered if you encountered this image on a <strong>shopping website</strong>?"
+//            q2 = "Now assume someone encounters this image on a <strong>shopping website</strong>, but they cannot see the image directly, and the only information they have is the following image description. What are two questions you'd recommend they ask?"
+            q2 = "Now assume someone encounters this image on a <strong>shopping website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
+
         }
         else if (exp.trial_info.main_trials[CT]['category'] == 'social_media') {
             text = "Imagine that you are browsing a <strong>social media website</strong>, with the goal of learning more about your connections, when you encounter the following image."
             q1 = "Why do you think this image appears on a <strong>social media website</strong>?"
-            q2 = "What are two questions you'd want to have answered if you encountered this image on a <strong>social media website</strong>?"
+//            q2 = "Now assume someone encounters this image on a <strong>social media website</strong>, but they cannot see the image directly, and the only information they have is the following image description. What are two questions you'd recommend they ask?"
+            q2 = "Now assume someone encounters this image on a <strong>health website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
+
         }
         else if (exp.trial_info.main_trials[CT]['category'] == 'news') {
             text = "Imagine that you are browsing a <strong>news website</strong> (such as the New York Times), with the goal of learning more about recent news developments, when you encounter the following image."
             q1 = "Why do you think this image appears on a <strong>news website</strong>?"
-            q2 = "What are two questions you'd want to have answered if you encountered this image on a <strong>news website</strong>?"
+//            q2 = "Now assume someone encounters this image on a <strong>news website</strong>, but they cannot see the image directly, and the only information they have is the following image description. What are two questions you'd recommend they ask?"
+            q2 = "Now assume someone encounters this image on a <strong>health website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
         }
         else if (exp.trial_info.main_trials[CT]['category'] == 'travel') {
             text = "Imagine that you are browsing a <strong>travel website</strong>, with the goal of traveling to a new location, when you encounter the following image."
             q1 = "Why do you think this image appears on a <strong>travel website</strong>?"
-            q2 = "What are two questions you'd want to have answered if you encountered this image on a <strong>travel website</strong>?"
+//            q2 = "Now assume someone encounters this image on a <strong>travel website</strong>, but they cannot see the image directly, and the only information they have is the following image description. What are two questions you'd recommend they ask?"
+            q2 = "Now assume someone encounters this image on a <strong>travel website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
         }
         else if (exp.trial_info.main_trials[CT]['category'] == 'science_journals') {
-            text = "Imagine that you are browsing <strong>science magazine website</strong> (such as National Geographic), with the goal of learning more about recent science developments, when you encounter the following image."
-            q1 = "Why do you think this image appears in an <strong>science magazine website</strong>?"
-            q2 = "What are two questions you'd want to have answered if you encountered this image on an <strong>science magazine website</strong>?"
+            text = "Imagine that you are browsing <strong>a science magazine website</strong> (such as National Geographic), with the goal of learning more about recent science developments, when you encounter the following image."
+            q1 = "Why do you think this image appears in a <strong>science magazine website</strong>?"
+       //     q2 = "Now assume someone encounters this image on a <strong>science website</strong>, but they cannot see the image directly, and the only information they have is the following image description. What are two questions you'd recommend they ask?"
+            q2 = "Now assume someone encounters this image on a <strong>science magazine website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
         }
 
         q1 += " A response of 5-10 words should be sufficient."
 
-        checkbox = 'There is a grammatical error in the description';
+        checkbox = 'The description contains inaccurate information';
 
         slider_left = '';
         slider_right = '';
@@ -295,7 +302,8 @@ var main = {
                 var trial_data = {
                     trial_number: CT + 1,
                     reactionTime: RT,
-                    picture: "images/" + exp.trial_info.main_trials[CT]['filename'],
+                    category: exp.trial_info.main_trials[CT]['category'],
+                    picture: exp.trial_info.main_trials[CT]['filename'],
                     description: exp.trial_info.main_trials[CT]['description'],
                     context_justification: $('#context-justification').val(),
                     q1: $('#question-1').val(),
@@ -380,7 +388,7 @@ var thanks = {
                 Mustache.render(viewTemplate, {
                     thanksMessage: this.message,
                     extraMessage:
-                        "Please press the button below to confirm that you completed the experiment with Prolific. Your completion code is C11KOQ9V. <br />" +
+                        "Please press the button below to confirm that you completed the experiment with Prolific. Your completion code is CUBGDLXQ. <br />" +
                         "<a href=" +
                         config_deploy.prolificURL +
                         ' class="prolific-url">Confirm</a>'
