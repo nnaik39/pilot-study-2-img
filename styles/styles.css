@@ -79,10 +79,10 @@ p {
     border-width:3px;
     border-style:solid;
     border-color:#000000;
-    padding-top: 50px;
-    padding-left: 1em;
-    padding-bottom: 50px;
-    padding-right: 1em;
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-bottom: 25px;
+    padding-right: 25px;
 }
 
 button,
@@ -519,7 +519,7 @@ textarea {
   /* The actual popup (appears on top) */
   .popup .popuptext {
     display: none;
-    width: 525px;
+    width: 500px;
     background-color: hwb(0 100% 0%);
     color: hsl(0, 0%, 0%);
     text-align: center;

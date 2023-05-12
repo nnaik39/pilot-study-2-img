@@ -77,7 +77,7 @@ var intro = {
     title: "Stanford NLP Lab",
     // introduction text
     text:
-        "Thank you for participating in our study. In this study, you will see six AI-generated descriptions paired with a type of website where the image appears. For each image description, you will answer why the image appears in the selected location, and write two questions for the image based on the website in which you encounter it. The whole study should take about X minutes. Please only participate once in this study. <br>Please do <strong>not</strong> participate on a mobile device since the page won't display properly.<br><small>If you have any questions or concerns, don't hesitate to contact me at nanditan@stanford.edu</small>",
+        "Thank you for participating in our study. Thank you for participating in our study. In this study, you will see six images paired with a type of website where the image appears. For each image, you will write two questions.  Please only participate once in this study. <br>Please do <strong>not</strong> participate on a mobile device since the page won't display properly.<br><small>If you have any questions or concerns, don't hesitate to contact me at nanditan@stanford.edu</small>",
     legal_info:
         "<strong>LEGAL INFORMATION</strong>:<br><br>We invite you to participate in a research study on language production and comprehension.<br>Your experimenter will ask you to do a linguistic task such as reading sentences or words, naming pictures or describing scenes, making up sentences of your own, or participating in a simple language game.<br><br>You will be paid for your participation at the posted rate.<br><br>There are no risks or benefits of any kind involved in this study.<br><br>If you have read this form and have decided to participate in this experiment, please understand your participation is voluntary and you have the right to withdraw your consent or discontinue participation at any time without penalty or loss of benefits to which you are otherwise entitled. You have the right to refuse to do particular tasks. Your individual privacy will be maintained in all published and written data resulting from the study.<br>You may print this form for your records.<br><br>CONTACT INFORMATION:<br>If you have any questions, concerns or complaints about this research study, its procedures, risks and benefits, you should contact the Protocol Director Christopher Potts at (650) 723-4284. <br>If you are not satisfied with how this study is being conducted, or if you have any concerns, complaints, or general questions about the research or your rights as a participant, please contact the Stanford Institutional Review Board (IRB) to speak to someone independent of the research team at (650)-723-2480 or toll free at 1-866-680-2906. You can also write to the Stanford IRB, Stanford University, 3000 El Camino Real, Five Palo Alto Square, 4th Floor, Palo Alto, CA 94306 USA.<br><br>If you agree to participate, please proceed to the study tasks.",
     // introduction's slide proceeding button text
@@ -138,8 +138,8 @@ var instruction_screen = {
     name: "instruction",
     title: "Instructions",
     text:
-        "<strong>Images online</strong> can be a useful resource, but there are cases where you <strong>cannot directly see</strong> the image—for instance, if you have a visual impairment or if you’re browsing a speech-enabled website where the site content is narrated.",
-    paragraph2: "In this study, we’re investigating how asking questions might help when you can’t see the image. You’ll see six <strong>image descriptions</strong>, each paired with a type of website where you might see the image. You’ll be asked to <strong> guess why </strong> the image appears on this type of website, and to <strong> ask questions </strong> to understand the image further.",
+        "<strong>Images online</strong> can be a useful resource, but there are cases where a person <strong>cannot directly see</strong> the image—for instance, if you have a visual impairment or if you’re browsing a speech-enabled website where the site content is narrated. In this case, the person might rely on an AI-generated <strong>image description</strong>, and would need to ask follow-up questions to understand the image further.",
+    paragraph2: "In this study, we’re investigating the kinds of questions people ask about images. You’ll see six <strong>images</strong>, each paired with a type of website where you might see the image and an AI-generated image description. You’ll be asked to <strong> guess why </strong> the image appears on this type of website, and to <strong> suggest follow-up questions </strong> for people who cannot see the image and only have access to an image description.",
     readyText: "Are you ready?",
     buttonText: "Begin experiment",
     // render function renders the view
@@ -197,14 +197,14 @@ var main = {
             text = "Imagine that you are browsing a <strong>social media website</strong>, with the goal of learning more about your connections, when you encounter the following image."
             q1 = "Why do you think this image appears on a <strong>social media website</strong>?"
 //            q2 = "Now assume someone encounters this image on a <strong>social media website</strong>, but they cannot see the image directly, and the only information they have is the following image description. What are two questions you'd recommend they ask?"
-            q2 = "Now assume someone encounters this image on a <strong>health website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
+            q2 = "Now assume someone encounters this image on a <strong>social media website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
 
         }
         else if (exp.trial_info.main_trials[CT]['category'] == 'news') {
             text = "Imagine that you are browsing a <strong>news website</strong> (such as the New York Times), with the goal of learning more about recent news developments, when you encounter the following image."
             q1 = "Why do you think this image appears on a <strong>news website</strong>?"
 //            q2 = "Now assume someone encounters this image on a <strong>news website</strong>, but they cannot see the image directly, and the only information they have is the following image description. What are two questions you'd recommend they ask?"
-            q2 = "Now assume someone encounters this image on a <strong>health website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
+            q2 = "Now assume someone encounters this image on a <strong>news website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
         }
         else if (exp.trial_info.main_trials[CT]['category'] == 'travel') {
             text = "Imagine that you are browsing a <strong>travel website</strong>, with the goal of traveling to a new location, when you encounter the following image."
@@ -213,7 +213,7 @@ var main = {
             q2 = "Now assume someone encounters this image on a <strong>travel website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
         }
         else if (exp.trial_info.main_trials[CT]['category'] == 'science_journals') {
-            text = "Imagine that you are browsing <strong>a science magazine website</strong> (such as National Geographic), with the goal of learning more about recent science developments, when you encounter the following image."
+            text = "Imagine that you are browsing a <strong>science magazine website</strong> (such as National Geographic), with the goal of learning more about recent science developments, when you encounter the following image."
             q1 = "Why do you think this image appears in a <strong>science magazine website</strong>?"
        //     q2 = "Now assume someone encounters this image on a <strong>science website</strong>, but they cannot see the image directly, and the only information they have is the following image description. What are two questions you'd recommend they ask?"
             q2 = "Now assume someone encounters this image on a <strong>science magazine website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
@@ -388,7 +388,7 @@ var thanks = {
                 Mustache.render(viewTemplate, {
                     thanksMessage: this.message,
                     extraMessage:
-                        "Please press the button below to confirm that you completed the experiment with Prolific. Your completion code is CUBGDLXQ. <br />" +
+                        "Please press the button below to confirm that you completed the experiment with Prolific. Your completion code is C6Q6QMJ5. <br />" +
                         "<a href=" +
                         config_deploy.prolificURL +
                         ' class="prolific-url">Confirm</a>'
