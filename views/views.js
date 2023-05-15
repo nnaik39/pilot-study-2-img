@@ -138,7 +138,7 @@ var instruction_screen = {
     name: "instruction",
     title: "Instructions",
     text:
-        "<strong>Images online</strong> can be a useful resource, but there are cases where a person <strong>cannot directly see</strong> the image—for instance, if you have a visual impairment or if you’re browsing a speech-enabled website where the site content is narrated. In this case, the person might rely on an AI-generated <strong>image description</strong>, and would need to ask follow-up questions to understand the image further.",
+        "<strong>Images online</strong> can be a useful resource, but there are cases where a person <strong>cannot directly see</strong> the image—for instance, if the image does not load or you’re browsing a speech-enabled website where the site content is narrated. In this case, the person might rely on an AI-generated <strong>image description</strong>, and would need to ask follow-up questions to understand the image further.",
     paragraph2: "In this study, we’re investigating the kinds of questions people ask about images. You’ll see six <strong>images</strong>, each paired with a type of website where you might see the image and an AI-generated image description. You’ll be asked to <strong> guess why </strong> the image appears on this type of website, and to <strong> suggest follow-up questions </strong> for people who cannot see the image and only have access to an image description.",
     readyText: "Are you ready?",
     buttonText: "Begin experiment",
@@ -148,6 +148,7 @@ var instruction_screen = {
 
         $("#main").html(
             Mustache.render(viewTemplate, {
+                picture: 'images/instruction_screen.gif',
                 title: this.title,
                 text: this.text,
                 button: this.buttonText,
@@ -184,39 +185,39 @@ var main = {
         if (exp.trial_info.main_trials[CT]['category'] == 'health') {
             text = "Imagine that you are browsing a <strong>health website</strong>, with the goal of learning how to live a healthier lifestyle, when you encounter the following image."
             q1 = "Why do you think this image appears on a <strong>health website </strong>?"
-            q2 = "Now assume someone encounters this image on a <strong>health website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
+            q2 = "Now assume someone encounters this image on a <strong>health website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask that someone who can see the image would be able to answer?"
         }
         else if (exp.trial_info.main_trials[CT]['category'] == 'shopping') {
             text = "Imagine that you are browsing a <strong>shopping website</strong>, with the goal of purchasing an item or experience, when you encounter the following image."
             q1 = "Why do you think this image appears on a <strong>shopping website</strong>?"
 //            q2 = "Now assume someone encounters this image on a <strong>shopping website</strong>, but they cannot see the image directly, and the only information they have is the following image description. What are two questions you'd recommend they ask?"
-            q2 = "Now assume someone encounters this image on a <strong>shopping website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
+            q2 = "Now assume someone encounters this image on a <strong>shopping website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask that someone who can see the image would be able to answer?"
 
         }
         else if (exp.trial_info.main_trials[CT]['category'] == 'social_media') {
             text = "Imagine that you are browsing a <strong>social media website</strong>, with the goal of learning more about your connections, when you encounter the following image."
             q1 = "Why do you think this image appears on a <strong>social media website</strong>?"
 //            q2 = "Now assume someone encounters this image on a <strong>social media website</strong>, but they cannot see the image directly, and the only information they have is the following image description. What are two questions you'd recommend they ask?"
-            q2 = "Now assume someone encounters this image on a <strong>social media website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
+            q2 = "Now assume someone encounters this image on a <strong>social media website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask that someone who can see the image would be able to answer?"
 
         }
         else if (exp.trial_info.main_trials[CT]['category'] == 'news') {
             text = "Imagine that you are browsing a <strong>news website</strong> (such as the New York Times), with the goal of learning more about recent news developments, when you encounter the following image."
             q1 = "Why do you think this image appears on a <strong>news website</strong>?"
 //            q2 = "Now assume someone encounters this image on a <strong>news website</strong>, but they cannot see the image directly, and the only information they have is the following image description. What are two questions you'd recommend they ask?"
-            q2 = "Now assume someone encounters this image on a <strong>news website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
+            q2 = "Now assume someone encounters this image on a <strong>news website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask that someone who can see the image would be able to answer?"
         }
         else if (exp.trial_info.main_trials[CT]['category'] == 'travel') {
             text = "Imagine that you are browsing a <strong>travel website</strong>, with the goal of traveling to a new location, when you encounter the following image."
             q1 = "Why do you think this image appears on a <strong>travel website</strong>?"
 //            q2 = "Now assume someone encounters this image on a <strong>travel website</strong>, but they cannot see the image directly, and the only information they have is the following image description. What are two questions you'd recommend they ask?"
-            q2 = "Now assume someone encounters this image on a <strong>travel website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
+            q2 = "Now assume someone encounters this image on a <strong>travel website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask that someone who can see the image would be able to answer?"
         }
         else if (exp.trial_info.main_trials[CT]['category'] == 'science_journals') {
             text = "Imagine that you are browsing a <strong>science magazine website</strong> (such as National Geographic), with the goal of learning more about recent science developments, when you encounter the following image."
             q1 = "Why do you think this image appears in a <strong>science magazine website</strong>?"
        //     q2 = "Now assume someone encounters this image on a <strong>science website</strong>, but they cannot see the image directly, and the only information they have is the following image description. What are two questions you'd recommend they ask?"
-            q2 = "Now assume someone encounters this image on a <strong>science magazine website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask?"
+            q2 = "Now assume someone encounters this image on a <strong>science magazine website</strong>, but they cannot see the image directly. The only information they have is the following image description. What are two follow-up questions you'd recommend they ask that someone who can see the image would be able to answer?"
         }
 
         q1 += " A response of 5-10 words should be sufficient."
